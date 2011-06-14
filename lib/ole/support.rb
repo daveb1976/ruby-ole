@@ -35,7 +35,7 @@ class File # :nodoc:
 end
 
 class Symbol # :nodoc:
-	unless Symbol.instance_methods.include?(:to_proc)
+	unless Symbol.method_defined? :to_proc
     def to_proc
       Proc.new { |*args| args.shift.__send__(self, *args) }
     end
